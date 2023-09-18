@@ -1,0 +1,180 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 35952 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:390), pid=16200, tid=0x00000000000037d4
+#
+# JRE version:  (8.0_111-b14) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.111-b14 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000002d21000):  JavaThread "main" [_thread_in_native, id=14292, stack(0x0000000002c20000,0x0000000002d20000)]
+
+Stack: [0x0000000002c20000,0x0000000002d20000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.String.<init>([C)V+8
+j  sun.nio.cs.FastCharsetProvider.toLower(Ljava/lang/String;)Ljava/lang/String;+118
+j  sun.nio.cs.FastCharsetProvider.lookup(Ljava/lang/String;)Ljava/nio/charset/Charset;+2
+j  sun.nio.cs.FastCharsetProvider.charsetForName(Ljava/lang/String;)Ljava/nio/charset/Charset;+10
+j  java.nio.charset.Charset.lookup2(Ljava/lang/String;)Ljava/nio/charset/Charset;+39
+j  java.nio.charset.Charset.lookup(Ljava/lang/String;)Ljava/nio/charset/Charset;+40
+j  java.nio.charset.Charset.defaultCharset()Ljava/nio/charset/Charset;+28
+j  sun.nio.cs.StreamEncoder.forOutputStreamWriter(Ljava/io/OutputStream;Ljava/lang/Object;Ljava/lang/String;)Lsun/nio/cs/StreamEncoder;+6
+j  java.io.OutputStreamWriter.<init>(Ljava/io/OutputStream;)V+12
+j  java.io.PrintStream.<init>(ZLjava/io/OutputStream;)V+26
+j  java.io.PrintStream.<init>(Ljava/io/OutputStream;Z)V+11
+j  java.lang.System.newPrintStream(Ljava/io/FileOutputStream;Ljava/lang/String;)Ljava/io/PrintStream;+42
+j  java.lang.System.initializeSystemClass()V+90
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000015298800 JavaThread "Finalizer" daemon [_thread_blocked, id=3856, stack(0x0000000015ee0000,0x0000000015fe0000)]
+  0x0000000002e0d000 JavaThread "Reference Handler" daemon [_thread_blocked, id=9120, stack(0x0000000015de0000,0x0000000015ee0000)]
+=>0x0000000002d21000 JavaThread "main" [_thread_in_native, id=14292, stack(0x0000000002c20000,0x0000000002d20000)]
+
+Other Threads:
+  0x0000000015276000 VMThread [stack: 0x0000000015ce0000,0x0000000015de0000] [id=14516]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 18944K, used 327K [0x00000000eab00000, 0x00000000ec000000, 0x0000000100000000)
+  eden space 16384K, 2% used [0x00000000eab00000,0x00000000eab51ec8,0x00000000ebb00000)
+  from space 2560K, 0% used [0x00000000ebd80000,0x00000000ebd80000,0x00000000ec000000)
+  to   space 2560K, 0% used [0x00000000ebb00000,0x00000000ebb00000,0x00000000ebd80000)
+ ParOldGen       total 44032K, used 0K [0x00000000c0000000, 0x00000000c2b00000, 0x00000000eab00000)
+  object space 44032K, 0% used [0x00000000c0000000,0x00000000c0000000,0x00000000c2b00000)
+ Metaspace       used 1361K, capacity 4480K, committed 4480K, reserved 1056768K
+  class space    used 151K, capacity 384K, committed 384K, reserved 1048576K
+
+Card table byte_map: [0x00000000121e0000,0x00000000123f0000] byte_map_base: 0x0000000011be0000
+
+Marking Bits: (ParMarkBitMap*) 0x0000000075c3a6c0
+ Begin Bits: [0x0000000012750000, 0x0000000013750000)
+ End Bits:   [0x0000000013750000, 0x0000000014750000)
+
+Polling page: 0x0000000001110000
+
+CodeCache: size=245760Kb used=404Kb max_used=404Kb free=245355Kb
+ bounds [0x0000000002e20000, 0x0000000003090000, 0x0000000011e20000]
+ total_blobs=104 nmethods=0 adapters=80
+ compilation: enabled
+
+Compilation events (0 events):
+No events
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (2 events):
+Event: 6.710 Thread 0x0000000002d21000 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x00000000eab07c78) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\
+Event: 6.710 Thread 0x0000000002d21000 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x00000000eab07f60) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\prims
+
+Events (10 events):
+Event: 7.255 loading class sun/nio/cs/StandardCharsets$Classes done
+Event: 7.255 loading class sun/nio/cs/StandardCharsets$Cache
+Event: 7.255 loading class sun/nio/cs/StandardCharsets$Cache done
+Event: 7.255 loading class java/lang/ThreadLocal
+Event: 7.255 loading class java/lang/ThreadLocal done
+Event: 7.256 loading class java/util/concurrent/atomic/AtomicInteger
+Event: 7.256 loading class java/util/concurrent/atomic/AtomicInteger done
+Event: 7.256 loading class sun/security/action/GetPropertyAction
+Event: 7.256 loading class sun/security/action/GetPropertyAction done
+Event: 7.256 loading class java/util/Arrays
+
+
+Dynamic libraries:
+0x00007ff79dd90000 - 0x00007ff79ddc7000 	C:\Program Files\Java\jdk1.8.0_111\bin\java.exe
+0x00007ffc94660000 - 0x00007ffc94850000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffc93d30000 - 0x00007ffc93de2000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffc92370000 - 0x00007ffc92614000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffc92930000 - 0x00007ffc929d3000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffc930d0000 - 0x00007ffc9316e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffc939b0000 - 0x00007ffc93a47000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffc93df0000 - 0x00007ffc93f10000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffc92710000 - 0x00007ffc928a4000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffc915f0000 - 0x00007ffc91611000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffc931e0000 - 0x00007ffc93206000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffc91850000 - 0x00007ffc919e5000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffc92640000 - 0x00007ffc926de000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffc91750000 - 0x00007ffc9184a000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffc83ce0000 - 0x00007ffc83f64000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.900_none_e6beb9d913147d17\COMCTL32.dll
+0x00007ffc93f10000 - 0x00007ffc94245000 	C:\WINDOWS\System32\combase.dll
+0x00007ffc91620000 - 0x00007ffc916a0000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffc94250000 - 0x00007ffc9427e000 	C:\WINDOWS\System32\IMM32.DLL
+0x0000000075340000 - 0x0000000075412000 	C:\Program Files\Java\jdk1.8.0_111\jre\bin\msvcr100.dll
+0x0000000075420000 - 0x0000000075cba000 	C:\Program Files\Java\jdk1.8.0_111\jre\bin\server\jvm.dll
+0x00007ffc93210000 - 0x00007ffc93218000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffc83af0000 - 0x00007ffc83af9000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffc93170000 - 0x00007ffc931df000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffc8bd70000 - 0x00007ffc8bd7a000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffc8f110000 - 0x00007ffc8f134000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffc8f0e0000 - 0x00007ffc8f10d000 	C:\WINDOWS\SYSTEM32\WINMMBASE.dll
+0x00007ffc919f0000 - 0x00007ffc91a3a000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00000000752f0000 - 0x00000000752ff000 	C:\Program Files\Java\jdk1.8.0_111\jre\bin\verify.dll
+0x00000000752c0000 - 0x00000000752e9000 	C:\Program Files\Java\jdk1.8.0_111\jre\bin\java.dll
+0x00000000752a0000 - 0x00000000752b6000 	C:\Program Files\Java\jdk1.8.0_111\jre\bin\zip.dll
+0x00007ffc929e0000 - 0x00007ffc930c6000 	C:\WINDOWS\System32\SHELL32.dll
+0x00007ffc93900000 - 0x00007ffc939a9000 	C:\WINDOWS\System32\shcore.dll
+0x00007ffc91b90000 - 0x00007ffc92310000 	C:\WINDOWS\System32\windows.storage.dll
+0x00007ffc91580000 - 0x00007ffc915a3000 	C:\WINDOWS\System32\profapi.dll
+0x00007ffc91530000 - 0x00007ffc9157a000 	C:\WINDOWS\System32\powrprof.dll
+0x00007ffc91520000 - 0x00007ffc91530000 	C:\WINDOWS\System32\UMPDC.dll
+0x00007ffc93cd0000 - 0x00007ffc93d22000 	C:\WINDOWS\System32\shlwapi.dll
+0x00007ffc915b0000 - 0x00007ffc915c1000 	C:\WINDOWS\System32\kernel.appcore.dll
+0x00007ffc92620000 - 0x00007ffc92637000 	C:\WINDOWS\System32\cryptsp.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=UTF-8 
+java_command: license_information
+java_class_path (initial): C:\Users\ALI HAIDER\Documents\mysql-connector-java-5.1.49-bin.jar;C:\Users\ALI HAIDER\Documents\mysql-connector-java-5.1.49.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\AbsoluteLayout.jar;C:\Users\ALI HAIDER\Documents\swingx-all-1.6.4.jar;M:\IReports JArs\commons-beanutils-1.8.2.jar;M:\IReports JArs\commons-collections-3.2.1.jar;M:\IReports JArs\commons-digester-2.1.jar;M:\IReports JArs\commons-javaflow-20060411.jar;M:\IReports JArs\commons-logging-1.1.jar;M:\IReports JArs\groovy-all-2.0.1.jar;M:\IReports JArs\iText-2.1.7.js2.jar;M:\IReports JArs\jasperreports-5.6.0.jar;M:\IReports JArs\jfreechart-1.0.12.jar;M:\IReports JArs\poi-3.7-20101029.jar;C:\plugins\jcalendar-1.4.jar;C:\Users\ALI HAIDER\Documents\NetBeansProjects\pathology_lab_software\build\classes
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\WINDOWS\System32\OpenSSH\;C:\Users\ALI HAIDER\AppData\Local\Microsoft\WindowsApps;
+USERNAME=ALI HAIDER
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 23 Stepping 10, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10.0 , 64 bit Build 18362 (10.0.18362.900)
+
+CPU:total 2 (2 cores per cpu, 1 threads per core) family 6 model 23 stepping 10, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, tsc
+
+Memory: 4k page, physical 4193456k(358500k free), swap 14769324k(422096k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.111-b14) for windows-amd64 JRE (1.8.0_111-b14), built on Sep 22 2016 19:24:05 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Thu Feb 25 09:51:14 2021
+elapsed time: 11 seconds (0d 0h 0m 11s)
+
