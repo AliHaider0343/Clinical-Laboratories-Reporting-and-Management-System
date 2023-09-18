@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="tests_whole_report" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f2c8b248-e132-4208-8569-ff4934678ff4">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="lab_name" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     pathology_tests.`Test_Serial_ID` AS pathology_tests_Test_Serial_ID,
+     pathology_tests.`Test_category` AS pathology_tests_Test_category,
+     pathology_tests.`Test_Name` AS pathology_tests_Test_Name,
+     pathology_tests.`Test_Range` AS pathology_tests_Test_Range,
+     pathology_tests.`Test_Unit` AS pathology_tests_Test_Unit,
+     pathology_tests.`Test_Rate` AS pathology_tests_Test_Rate
+FROM
+     `pathology_tests` pathology_tests]]>
+	</queryString>
+	<field name="pathology_tests_Test_Serial_ID" class="java.lang.Integer"/>
+	<field name="pathology_tests_Test_category" class="java.lang.String"/>
+	<field name="pathology_tests_Test_Name" class="java.lang.String"/>
+	<field name="pathology_tests_Test_Range" class="java.lang.String"/>
+	<field name="pathology_tests_Test_Unit" class="java.lang.String"/>
+	<field name="pathology_tests_Test_Rate" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="204" splitType="Stretch">
+			<staticText>
+				<reportElement x="232" y="107" width="100" height="12" uuid="18270bb5-450a-44f4-9c4b-7e515e6aba7e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="9"/>
+				</textElement>
+				<text><![CDATA[Product by Ali Haider]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="2" y="1" width="184" height="19" forecolor="#000000" uuid="e35dd853-8be4-469c-83cc-dc2c1f031716"/>
+				<textElement>
+					<font fontName="Rockwell" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-18" y="164" width="593" height="25" uuid="05a5d5bd-8fc6-432c-a2fc-6b547aea1cd6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="16"/>
+				</textElement>
+				<text><![CDATA[Tests  Report]]></text>
+			</staticText>
+			<image>
+				<reportElement x="232" y="4" width="114" height="102" uuid="40ebc1c1-f404-4b50-ae25-329a029d2cd4"/>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="-18" y="131" width="593" height="33" uuid="0dc99a58-e80f-44ed-82fe-fc24d1b5b6cc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Rockwell" size="24" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lab_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="62" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="13" y="9" width="75" height="34" forecolor="#000000" uuid="2edc0951-ab0f-4484-a222-4ac68dbd6250"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Srl.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="92" y="9" width="105" height="34" forecolor="#000000" uuid="59488225-6bfd-4ea6-ac0a-2b3bae808646"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Category]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="197" y="9" width="92" height="34" forecolor="#000000" uuid="2021dbc0-879e-45cd-85b4-de13cbbafe2e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="9" width="105" height="34" forecolor="#000000" uuid="9911dd0d-c237-49a1-9776-171c25147590"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Ranges]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="382" y="9" width="105" height="34" forecolor="#000000" uuid="db51bea3-683a-4404-9368-988dd6ed01de"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Test's Unit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="474" y="9" width="91" height="34" forecolor="#000000" uuid="f5cc2899-db81-4e7e-94fd-5e4999f18428"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Rate]]></text>
+			</staticText>
+			<rectangle radius="2">
+				<reportElement mode="Transparent" x="2" y="9" width="550" height="34" uuid="a55a482c-8a5f-433c-84b2-ff7ebab821cd"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement style="Detail" x="13" y="0" width="62" height="15" forecolor="#333333" uuid="e6065b20-5b3a-4367-93b8-c186f26798a0"/>
+				<textElement>
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pathology_tests_Test_Serial_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="92" y="0" width="94" height="15" forecolor="#333333" uuid="928316b5-c0e9-4aa6-b5c3-ac4c2198c335"/>
+				<textElement>
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pathology_tests_Test_category}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="0" width="92" height="15" forecolor="#333333" uuid="91211b5f-4f93-4ca4-a97f-0d724a5d91ee"/>
+				<textElement>
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pathology_tests_Test_Range}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="382" y="0" width="78" height="15" forecolor="#333333" uuid="22ff22f0-5fd2-47ea-a278-db570285e6e8"/>
+				<textElement>
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pathology_tests_Test_Unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="474" y="1" width="78" height="15" forecolor="#333333" uuid="98547174-9459-4355-9ed2-a109b977f4fd"/>
+				<textElement>
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pathology_tests_Test_Rate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="197" y="0" width="76" height="15" forecolor="#333333" uuid="870d7404-774f-494f-bde3-ed32ea040798"/>
+				<textElement>
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pathology_tests_Test_Name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="21" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="78" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="405" y="17" width="95" height="20" forecolor="#000000" uuid="e8fe78fc-805f-4cd3-8127-d1808679597c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="15" width="112" height="20" forecolor="#000000" uuid="b30f39c6-c52b-48c5-9a87-c122bea202d1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Phone +923068983139]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="505" y="17" width="52" height="20" forecolor="#000000" uuid="b3f874ba-40e8-48f6-85f6-e6d449d10eed"/>
+				<textElement>
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="2" width="555" height="1" uuid="c24d90ed-68a8-48a5-91ee-f7b1565ec513"/>
+			</line>
+			<staticText>
+				<reportElement x="1" y="58" width="553" height="20" forecolor="#000000" uuid="d269721d-2f11-4ba8-9150-61473b1894d7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ we value your Comments at alihaider.ah00000@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="45" width="552" height="20" forecolor="#000000" uuid="ebdee67e-52de-49e4-8046-e74cd92048cb"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Developed and Licensed by Ali Haider]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="15" width="155" height="20" forecolor="#000000" uuid="e7414e1f-03d2-45b3-ac85-a4e760966514"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="15" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Clincal Lab Solutions]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

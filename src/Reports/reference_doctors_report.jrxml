@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reference_doctors_report" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8bdb5435-c3ee-440a-8ef8-16da3f9d0873">
+	<property name="ireport.zoom" value="1.4641000000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="lab_name" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     reference_doctors.`Serial_Number` AS reference_doctors_Serial_Number,
+     reference_doctors.`Doctor_Name` AS reference_doctors_Doctor_Name,
+     reference_doctors.`Speicalization` AS reference_doctors_Speicalization,
+     reference_doctors.`Sex` AS reference_doctors_Sex,
+     reference_doctors.`Hospital_Name` AS reference_doctors_Hospital_Name,
+     reference_doctors.`Phone_Number` AS reference_doctors_Phone_Number
+FROM
+     `reference_doctors` reference_doctors]]>
+	</queryString>
+	<field name="reference_doctors_Serial_Number" class="java.lang.Integer"/>
+	<field name="reference_doctors_Doctor_Name" class="java.lang.String"/>
+	<field name="reference_doctors_Speicalization" class="java.lang.String"/>
+	<field name="reference_doctors_Sex" class="java.lang.String"/>
+	<field name="reference_doctors_Hospital_Name" class="java.lang.String"/>
+	<field name="reference_doctors_Phone_Number" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="209" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="129" width="555" height="40" uuid="ccf7075a-721f-46c7-a20a-3179199188a7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="24" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lab_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="232" y="103" width="100" height="12" uuid="dbe4caff-b802-4740-b73c-c1551134407a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="9"/>
+				</textElement>
+				<text><![CDATA[Product by Ali Haider]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="162" width="555" height="26" uuid="cd861ed8-ddb5-4454-8da2-5e2a3ede9c4d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="18"/>
+				</textElement>
+				<text><![CDATA[Referral Doctors Report]]></text>
+			</staticText>
+			<image>
+				<reportElement x="232" y="0" width="114" height="102" uuid="42b12e3a-48c8-42d0-aa7b-4ea15713f79e"/>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
+			</image>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="-2" y="0" width="184" height="19" forecolor="#000000" uuid="995f3a43-0265-408b-a41e-3d93b6f0bd1e"/>
+				<textElement>
+					<font fontName="Rockwell" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="63" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="6" y="12" width="30" height="31" forecolor="#000000" uuid="2fb042d1-873b-4160-b0a1-2a1132b83536"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Srl.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="47" y="12" width="81" height="31" forecolor="#000000" uuid="63c22942-676e-4dde-8094-417dcb2e7e70"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Doctor Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="163" y="11" width="108" height="32" forecolor="#000000" uuid="bff90448-cfa4-4b7d-8dcc-95e45cef8d88"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Specilaization]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="271" y="11" width="59" height="32" forecolor="#000000" uuid="6443ed9d-cc68-4e8a-97bb-512687418f60"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Gender]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="344" y="11" width="125" height="32" forecolor="#000000" uuid="6afa0083-5715-4c63-ada1-8580222ee032"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Reference Hospital]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="474" y="11" width="92" height="32" forecolor="#000000" uuid="88b619df-899c-4ee7-b78e-8d30b6ccd265"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Contact]]></text>
+			</staticText>
+			<rectangle radius="2">
+				<reportElement mode="Transparent" x="1" y="11" width="551" height="32" uuid="b1bab7c8-9caf-4470-9684-10c3a81325da"/>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement style="Detail" x="163" y="0" width="108" height="15" forecolor="#333333" uuid="be116086-5672-41b4-8403-9ad64c9f4527"/>
+				<textElement>
+					<font fontName="Rockwell" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reference_doctors_Speicalization}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="271" y="0" width="73" height="15" forecolor="#333333" uuid="25b43fad-b546-4581-8132-78ad0a975175"/>
+				<textElement>
+					<font fontName="Rockwell" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reference_doctors_Sex}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="344" y="0" width="125" height="15" forecolor="#333333" uuid="9adec3b4-4388-45c2-bf39-8192a1fbb248"/>
+				<textElement>
+					<font fontName="Rockwell" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reference_doctors_Hospital_Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="474" y="0" width="78" height="15" forecolor="#333333" uuid="dfc536b7-7baa-4589-84ad-3ebd853aa077"/>
+				<textElement>
+					<font fontName="Rockwell" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reference_doctors_Phone_Number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="47" y="0" width="116" height="15" forecolor="#333333" uuid="f5bbd0cd-33a9-4d69-bbfa-107b1390a34b"/>
+				<textElement>
+					<font fontName="Rockwell" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reference_doctors_Doctor_Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="6" y="1" width="47" height="15" forecolor="#333333" uuid="9d4f0704-a4bc-4d58-b610-854047274c26"/>
+				<textElement>
+					<font fontName="Rockwell" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reference_doctors_Serial_Number}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="29" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="82" splitType="Stretch">
+			<staticText>
+				<reportElement x="197" y="18" width="155" height="20" forecolor="#000000" uuid="444eb7c2-0cde-489d-91f2-898b99d906af"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="15" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Clincal Lab Solutions]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="58" width="553" height="20" forecolor="#000000" uuid="54b1a8ec-01d2-478c-b2d5-f901eef943c9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ we value your Comments at alihaider.ah00000@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="18" width="112" height="20" forecolor="#000000" uuid="470c6f54-3561-4a42-a0c5-f38150e14503"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Phone +923068983139]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Column header" x="435" y="18" width="80" height="20" forecolor="#000000" uuid="cf5116f9-c19f-41ae-96e4-6a439bef4c9b"/>
+				<textElement textAlignment="Right">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="519" y="18" width="40" height="20" forecolor="#000000" uuid="26ce9cf1-4309-451f-9c92-936c022f87c3"/>
+				<textElement>
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="2e13c502-b834-4149-814e-3aec9c115e24"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="44" width="552" height="20" forecolor="#000000" uuid="5a42483e-7b3e-418f-bc6a-dd76beb0bccd"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Developed and Licensed by Ali Haider]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

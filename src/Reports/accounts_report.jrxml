@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="accounts_report" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2b8d05e0-6e75-4384-ab3e-2391501435fd">
+	<property name="ireport.zoom" value="1.331000000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="lab_name" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     accounts.`Serial_Number` AS accounts_Serial_Number,
+     accounts.`Good_Name` AS accounts_Good_Name,
+     accounts.`User_name` AS accounts_User_name,
+     accounts.`Passward` AS accounts_Passward,
+     accounts.`Confirm_Passward` AS accounts_Confirm_Passward,
+     accounts.`Backup_pin` AS accounts_Backup_pin
+FROM
+     `accounts` accounts]]>
+	</queryString>
+	<field name="accounts_Serial_Number" class="java.lang.Integer"/>
+	<field name="accounts_Good_Name" class="java.lang.String"/>
+	<field name="accounts_User_name" class="java.lang.String"/>
+	<field name="accounts_Passward" class="java.lang.String"/>
+	<field name="accounts_Confirm_Passward" class="java.lang.String"/>
+	<field name="accounts_Backup_pin" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="198" splitType="Stretch">
+			<staticText>
+				<reportElement x="-2" y="162" width="555" height="26" uuid="bc4154b1-faa1-4e9f-8d36-2d0c45671f00"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="18"/>
+				</textElement>
+				<text><![CDATA[Accounts Report]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="184" height="19" forecolor="#000000" uuid="14a2be02-da18-4a43-951e-f747ce2d35eb"/>
+				<textElement>
+					<font fontName="Rockwell" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="129" width="555" height="40" uuid="91950f7b-6791-47a8-8b89-416194815395"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="24" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lab_name}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="230" y="0" width="114" height="102" uuid="1abacfaa-b66e-4e5b-8cd6-af98477cb335"/>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="230" y="103" width="100" height="12" uuid="3eb8fb3a-509e-4563-917c-789f243fc91a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="9"/>
+				</textElement>
+				<text><![CDATA[Product by Ali Haider]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="55" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="13" y="10" width="65" height="27" forecolor="#000000" uuid="9da24539-c979-4747-8b2d-7f06443037d0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Serial no]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="92" y="10" width="92" height="27" forecolor="#000000" uuid="1917d2d4-fcc9-4854-9a10-d81a02f74323"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="184" y="10" width="73" height="27" forecolor="#000000" uuid="fa2edb03-bce3-4da1-bcbe-674b14d07cf3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Username]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="10" width="92" height="27" forecolor="#000000" uuid="13a4f67f-5ccb-4f1b-91dd-7ff5716851d6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Passward]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="368" y="10" width="92" height="27" forecolor="#000000" uuid="7d26ccc5-fb02-42a0-9f06-32450844ef2c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Confirmation]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="460" y="10" width="92" height="27" forecolor="#000000" uuid="bb7ff2cb-10a0-45e4-a100-3aa7266092eb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Backup PIN]]></text>
+			</staticText>
+			<rectangle radius="2">
+				<reportElement mode="Transparent" x="0" y="7" width="555" height="33" uuid="2ecf0d89-2fa2-4a8d-8d11-6cde6087837f"/>
+				<graphicElement>
+					<pen lineStyle="Double"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement style="Detail" x="13" y="3" width="65" height="15" forecolor="#333333" uuid="84a211d5-9f5e-44f3-81b6-3e8b620b8bac"/>
+				<textElement>
+					<font fontName="Rockwell" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{accounts_Serial_Number}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="92" y="3" width="92" height="15" forecolor="#000000" uuid="cf479dd9-dc25-4111-aa33-22ea3a871781"/>
+				<textElement>
+					<font fontName="Rockwell" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{accounts_Good_Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="184" y="3" width="92" height="15" forecolor="#000000" uuid="45605367-2541-4cf9-87da-a86e96eea903"/>
+				<textElement>
+					<font fontName="Rockwell" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{accounts_User_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="3" width="92" height="15" forecolor="#000000" uuid="01908ed5-b59d-4c2f-b130-b863296e39fe"/>
+				<textElement>
+					<font fontName="Rockwell" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{accounts_Passward}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="368" y="3" width="92" height="15" forecolor="#000000" uuid="dde4ebd3-deb6-4912-b807-c1faeb2502f7"/>
+				<textElement>
+					<font fontName="Rockwell" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{accounts_Confirm_Passward}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="460" y="3" width="92" height="15" forecolor="#000000" uuid="de3f51ce-d8a4-4b48-9c32-97ff4e02f2f6"/>
+				<textElement>
+					<font fontName="Rockwell" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{accounts_Backup_pin}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="25" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="87" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="435" y="18" width="80" height="20" forecolor="#000000" uuid="b020064a-ffc1-4477-8463-6895425d3135"/>
+				<textElement textAlignment="Right">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="519" y="18" width="40" height="20" forecolor="#000000" uuid="64462859-30e8-48f9-b591-7a180a48de57"/>
+				<textElement>
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="44" width="552" height="20" forecolor="#000000" uuid="e9d2ad4b-92b0-4eb9-9f10-f6eee6146a11"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Developed and Licensed by Ali Haider]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="58" width="553" height="20" forecolor="#000000" uuid="9f090a34-fd54-47c0-8b29-c5a0c753fc4d"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ we value your Comments at alihaider.ah00000@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="18" width="155" height="20" forecolor="#000000" uuid="c5e2f089-b1f2-4388-ab2e-8d958aef9447"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="15" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Clincal Lab Solutions]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="18" width="112" height="20" forecolor="#000000" uuid="e80b497e-8504-4db0-af2e-23570a7654f7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Phone +923068983139]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="6b0dc7ea-86b5-4e20-a957-e111849b1fe9"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

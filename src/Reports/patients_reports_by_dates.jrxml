@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="whole_patients_sales_report" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d608c9b6-c512-42b2-917f-a5442380adc1">
+	<property name="ireport.zoom" value="1.7715610000000044"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="17"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="total_reports" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="total_tests" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="total_amount" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="discount" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="grand_total" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="payed_amount" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="chnage_returned" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="reaminings" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="income" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="from_date" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="to_date" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="lab_name" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     patients_reports.`Report_Serial_ID` AS patients_reports_Report_Serial_ID,
+     patients_reports.`Patient_Name` AS patients_reports_Patient_Name,
+     patients_reports.`Age` AS patients_reports_Age,
+     patients_reports.`Sex` AS patients_reports_Sex,
+     patients_reports.`Specimen` AS patients_reports_Specimen,
+     patients_reports.`Referred_By` AS patients_reports_Referred_By,
+     patients_reports.`Reporting_Date` AS patients_reports_Reporting_Date,
+     patients_reports.`Reporting_Time` AS patients_reports_Reporting_Time,
+     patients_reports.`Total_Tests` AS patients_reports_Total_Tests,
+     patients_reports.`Total_Amount` AS patients_reports_Total_Amount,
+     patients_reports.`discount` AS patients_reports_discount,
+     patients_reports.`Grand_total` AS patients_reports_Grand_total,
+     patients_reports.`Payed_Amount` AS patients_reports_Payed_Amount,
+     patients_reports.`change_returned` AS patients_reports_change_returned,
+     patients_reports.`remaining_amount` AS patients_reports_remaining_amount,
+     patients_reports.`Address` AS patients_reports_Address,
+     patients_reports.`Phone_Number` AS patients_reports_Phone_Number
+FROM
+     `patients_reports` patients_reports WHERE patients_reports.`Reporting_Date` BETWEEN $P{from_date} AND $P{to_date}]]>
+	</queryString>
+	<field name="patients_reports_Report_Serial_ID" class="java.lang.Integer"/>
+	<field name="patients_reports_Patient_Name" class="java.lang.String"/>
+	<field name="patients_reports_Age" class="java.lang.String"/>
+	<field name="patients_reports_Sex" class="java.lang.String"/>
+	<field name="patients_reports_Specimen" class="java.lang.String"/>
+	<field name="patients_reports_Referred_By" class="java.lang.String"/>
+	<field name="patients_reports_Reporting_Date" class="java.lang.String"/>
+	<field name="patients_reports_Reporting_Time" class="java.lang.String"/>
+	<field name="patients_reports_Total_Tests" class="java.lang.String"/>
+	<field name="patients_reports_Total_Amount" class="java.lang.String"/>
+	<field name="patients_reports_discount" class="java.lang.String"/>
+	<field name="patients_reports_Grand_total" class="java.lang.String"/>
+	<field name="patients_reports_Payed_Amount" class="java.lang.String"/>
+	<field name="patients_reports_change_returned" class="java.lang.String"/>
+	<field name="patients_reports_remaining_amount" class="java.lang.String"/>
+	<field name="patients_reports_Address" class="java.lang.String"/>
+	<field name="patients_reports_Phone_Number" class="java.lang.String"/>
+	<group name="sales_details">
+		<groupHeader>
+			<band height="363">
+				<staticText>
+					<reportElement style="Column header" x="4" y="227" width="155" height="16" forecolor="#000000" uuid="e6836c13-594a-46fe-b97c-6de842f87572"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="13" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Total  Discount]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="104" y="123" width="110" height="17" forecolor="#000000" uuid="4f574952-9d73-4966-8b2e-f0216fb1b89c"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="11" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{total_reports}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="442" y="227" width="128" height="16" forecolor="#000000" uuid="066c2a2f-9c1e-4ce6-a78d-dbf84404c0b0"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="11" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{reaminings}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="411" y="198" width="27" height="16" forecolor="#000000" uuid="639831a7-a1ea-4018-9113-f6a9df02c176"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Rs.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="4" y="198" width="155" height="17" forecolor="#000000" uuid="d732edc7-97a2-4ca0-9154-f12a6cfa2852"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="13" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Total (without Discount)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="159" y="226" width="26" height="17" forecolor="#000000" uuid="c4816b81-26c4-4a53-8fb0-a591f966a360"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Rs.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="299" y="198" width="124" height="16" forecolor="#000000" uuid="00de9aa6-8f6c-4d30-8829-29b643c31e32"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="13" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Total Change Returned]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="299" y="226" width="124" height="17" forecolor="#000000" uuid="4db207ab-2ac6-435f-b71f-c857c9768f7e"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="13" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Total Remianings]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="188" y="198" width="111" height="16" forecolor="#000000" uuid="8330c1fd-9dc4-4d8b-ae86-b98f92729abb"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="11" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{total_amount}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="299" y="169" width="122" height="17" forecolor="#000000" uuid="0dcd3136-33f3-4867-9be8-beefdd0b4de2"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="13" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Payed Amount]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="299" y="254" width="97" height="17" forecolor="#000000" uuid="590b0ba6-f8bc-4536-80e4-09d7683e431a"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="13" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Total Income]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="188" y="169" width="114" height="17" forecolor="#000000" uuid="3d92fcdb-4d3c-4086-93ff-9f999ccdac9a"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="11" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{total_tests}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="188" y="226" width="114" height="17" forecolor="#000000" uuid="5d9e447d-af5e-43c7-bb0f-0c8cde8963d3"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="11" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{discount}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="442" y="198" width="128" height="16" forecolor="#000000" uuid="7f960c2e-d2bb-46ca-976e-3a6e9f408154"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="11" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{chnage_returned}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="411" y="170" width="26" height="16" forecolor="#000000" uuid="78135f5d-548f-45f4-a70e-c26493fc3843"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Rs.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="4" y="123" width="82" height="17" forecolor="#000000" uuid="cf456c8c-f70c-4b00-a6e1-a255a0a666b1"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="13" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Total Reports ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="4" y="254" width="155" height="17" forecolor="#000000" uuid="98c94cd7-8224-4378-8a8f-48774eabb92b"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="13" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Total  (with Discount)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="411" y="227" width="26" height="17" forecolor="#000000" uuid="b7602333-5ce4-4595-80df-06908ad8e08b"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Rs.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="159" y="254" width="26" height="17" forecolor="#000000" uuid="024bc1ab-27f6-4564-b470-61ef2f51c627"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Rs.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="411" y="254" width="25" height="17" forecolor="#000000" uuid="324dae64-6a92-48ea-ba84-23d06bab392c"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Rs.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="4" y="169" width="137" height="17" forecolor="#000000" uuid="5e3ea924-97dd-45cb-afac-19527f9a6983"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="13" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Total Tests (individually)]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="189" y="254" width="113" height="17" forecolor="#000000" uuid="7ae88e21-525a-4751-a5ad-c010224eed2a"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="11" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{grand_total}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="442" y="254" width="128" height="17" forecolor="#000000" uuid="14dae9af-a61c-4c34-bc35-6993eea086c8"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="11" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{income}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="159" y="198" width="26" height="16" forecolor="#000000" uuid="32736892-5f7b-47d9-a41d-99ae08a1f5e2"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="12" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Rs.]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="442" y="170" width="128" height="16" forecolor="#000000" uuid="23cbd4c6-db51-4f11-806f-9363e5ac81c3"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Rockwell" size="11" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{payed_amount}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="Column header" x="1" y="42" width="555" height="31" forecolor="#000000" uuid="a880e9d8-6b1d-48bc-bde0-3dd26c9f0af2"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Rockwell" size="26" isBold="false"/>
+					</textElement>
+					<text><![CDATA[STATISTICS SUMMARY]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="347" width="555" height="1" uuid="4f601d32-791f-4902-afd2-d4ce1d886e32"/>
+				</line>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="356" splitType="Stretch">
+			<staticText>
+				<reportElement x="193" y="181" width="155" height="18" uuid="530b546f-687b-41a0-b195-b74e54bd3b85"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="13"/>
+				</textElement>
+				<text><![CDATA[Product by Ali Haider]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="-1" y="230" width="555" height="40" uuid="70dfc08b-6ce4-40f6-a681-14d4b0ec5c5f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="24" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lab_name}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="184" height="19" forecolor="#000000" uuid="b1b1d1c8-1431-4238-991d-10c230f2a566"/>
+				<textElement>
+					<font fontName="Rockwell" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="193" y="19" width="183" height="162" uuid="ccc2f831-d8b6-4367-bcaf-eb2d7bf0b24c"/>
+				<imageExpression><![CDATA["logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="1" y="264" width="555" height="26" uuid="5d44378f-f6e8-42e6-bfdb-fcc687b7791c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="20"/>
+				</textElement>
+				<text><![CDATA[Sales Statistics Report]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="343" width="555" height="1" uuid="00243310-987f-4c00-82a9-0399ccd6e4c1"/>
+			</line>
+			<textField>
+				<reportElement x="75" y="291" width="102" height="25" uuid="28372dae-29c0-49d5-a29b-40b760e59c45"/>
+				<textElement>
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{from_date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="75" y="313" width="102" height="22" uuid="ee999586-2223-4072-b8df-ba43b694a500"/>
+				<textElement>
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{to_date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="313" width="65" height="19" uuid="7ab9b1e9-48a5-4375-9ae2-1ca76c632e4c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[End Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="291" width="65" height="22" uuid="21660ce5-6dd1-4929-8690-f369bdf3aed0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Start Date]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="351" splitType="Prevent">
+			<textField>
+				<reportElement style="Detail" x="453" y="93" width="98" height="18" forecolor="#000000" uuid="5eaade7e-22ab-4fd9-a086-f8a6caf41210"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_Reporting_Time}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="192" y="165" width="65" height="15" forecolor="#000000" uuid="cc68fdd3-145b-402c-848a-01a8e23385b5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_Sex}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="357" y="74" width="96" height="18" forecolor="#000000" uuid="b8d6a629-c0ab-4b78-a256-d99248f566de"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Reporting Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="14" y="164" width="98" height="16" forecolor="#000000" uuid="a641e67a-bc6b-4ce5-8d87-bbedebb606ef"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_Patient_Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="453" y="74" width="98" height="19" forecolor="#000000" uuid="e6a1172e-42cd-4517-9609-59cb568e9390"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_Reporting_Date}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="357" y="139" width="98" height="17" forecolor="#000000" uuid="ccaf0b9e-d596-40b0-9c91-27129f013a46"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Phone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="115" y="139" width="74" height="17" forecolor="#000000" uuid="dae4d342-2a1c-4f37-891d-d90d20d74bdd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Age]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="192" y="139" width="65" height="17" forecolor="#000000" uuid="50c70793-a53c-4e7c-b278-08261988e0c8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Gender]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="392" y="234" width="75" height="15" forecolor="#000000" uuid="843d0df5-429b-4bc3-975e-4086aec871bd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_discount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="277" y="281" width="99" height="15" forecolor="#000000" uuid="f7b3e66b-8b52-4f59-a259-ac25a58ca278"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_Payed_Amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="479" y="234" width="91" height="15" forecolor="#000000" uuid="1bf798b5-1569-4cf6-bc12-7e2fe63ce20a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_Grand_total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="14" y="139" width="108" height="17" forecolor="#000000" uuid="9335de0c-ee34-4b32-9693-79791b848a22"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="455" y="139" width="97" height="16" forecolor="#000000" uuid="53755294-cffc-40dd-9713-bcc2521c2129"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Total Tests]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="4" y="74" width="84" height="16" forecolor="#000000" uuid="bb38a9d5-2caf-487e-b008-c9c464780b95"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Referred By]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="257" y="165" width="95" height="15" forecolor="#000000" uuid="cc2e24b8-fbb7-4b09-9501-d3ff99e6a098"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_Address}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="4" y="93" width="82" height="16" forecolor="#000000" uuid="7af4f7e5-9e36-4ddc-9a4f-68054f5566bd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Specimen]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="357" y="93" width="96" height="18" forecolor="#000000" uuid="5e248a8d-c16e-4915-a220-b151ceb9dcac"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Reporting Time]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="277" y="265" width="99" height="16" forecolor="#000000" uuid="7ef04d66-0316-4efc-9d57-db9e6d11b8d6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Payed Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="392" y="265" width="75" height="16" forecolor="#000000" uuid="17f79dcf-e431-4fbb-ac01-5b77b8619ee2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Change ]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="357" y="165" width="96" height="15" forecolor="#000000" uuid="8e34d379-784d-4bc4-96a9-e4b33307d968"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_Phone_Number}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="479" y="218" width="91" height="16" forecolor="#000000" uuid="68494bb5-2059-4d41-a363-45deb1821650"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Grand Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="479" y="281" width="89" height="15" forecolor="#000000" uuid="ea29f584-3940-4512-b313-b75184e327cb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_remaining_amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="277" y="234" width="99" height="15" forecolor="#000000" uuid="8ac14bde-364c-4021-b609-b948f9c8ccac"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_Total_Amount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="455" y="164" width="97" height="16" forecolor="#000000" uuid="68a8d9ea-8d78-4741-bb5a-b27a6efe95d5"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_Total_Tests}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="277" y="218" width="99" height="16" forecolor="#000000" uuid="47b63184-f18d-4a83-aa55-a8d373fdccc9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Total Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="4" y="37" width="76" height="21" forecolor="#000000" uuid="d03063c3-f288-4e54-9220-08035db44994"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="17" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Report no]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="392" y="281" width="75" height="15" forecolor="#000000" uuid="46f8d1f6-8601-47e1-9b52-f83987b31a60"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_change_returned}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="479" y="265" width="89" height="16" forecolor="#000000" uuid="68cd552e-94b1-4aa6-8a05-600bf4b5fa0c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Remaining]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="392" y="218" width="75" height="16" forecolor="#000000" uuid="8468c13f-7cea-4b82-a6de-c8bcf14c7e9b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Discount]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="95" y="74" width="237" height="16" forecolor="#000000" uuid="5b0d95be-2b12-4447-b05b-b92661193e7b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_Referred_By}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="115" y="165" width="74" height="15" forecolor="#000000" uuid="8b753517-9629-455b-95c9-2f10a8303513"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_Age}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="Column header" x="257" y="140" width="95" height="16" forecolor="#000000" uuid="ca8b8b85-d0ea-4be4-b473-b6598a4b48a6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Detail" x="95" y="37" width="113" height="21" forecolor="#000000" uuid="7ff3d316-6577-43ef-b855-a9e25aba64d4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell" size="13" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_Report_Serial_ID}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="274" y="201" width="282" height="1" uuid="03a82276-87eb-48c7-9dd3-3d76673b53f7"/>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="95" y="93" width="237" height="16" forecolor="#000000" uuid="bd53c0be-6d48-41ef-8e2d-4b7f53a25e6a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Rockwell"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{patients_reports_Specimen}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement mode="Transparent" x="0" y="134" width="555" height="27" uuid="d42b280c-781b-44b8-9233-4f4eed41a24b"/>
+			</rectangle>
+			<line>
+				<reportElement x="0" y="334" width="555" height="1" uuid="60f3da79-d158-44b2-928e-5696343fdbdf"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="80" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="436" y="12" width="80" height="20" forecolor="#000000" uuid="98b0c768-8f39-403a-9ec9-c805b4fa1f9c"/>
+				<textElement textAlignment="Right">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="520" y="12" width="40" height="20" forecolor="#000000" uuid="9fffd243-e106-419a-a751-610aea6cda8a"/>
+				<textElement>
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="38" width="552" height="20" forecolor="#000000" uuid="a4ae70bb-94fa-4db9-ad78-720cce3cfd39"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Developed and Licensed by Ali Haider]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="12" width="112" height="20" forecolor="#000000" uuid="dae98b98-02d0-4e33-8287-02f05daabee0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Phone +923068983139]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="52" width="553" height="20" forecolor="#000000" uuid="707d6a5e-c128-4926-9178-d6f2b8459d45"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ we value your Comments at alihaider.ah00000@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="198" y="12" width="155" height="20" forecolor="#000000" uuid="3a279087-44f0-4b49-8b16-6de57f468299"/>
+				<textElement textAlignment="Center">
+					<font fontName="Rockwell" size="15" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Clincal Lab Solutions]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
